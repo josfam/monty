@@ -11,6 +11,10 @@ int main(void)
 	push(&tail, 2);
 	push(&tail, 3);
 	pall(&tail);
+	push(&tail, 4);
+	push(&tail, 5);
+	push(&tail, 6);
+	pall(&tail);
 
 	return (0);
 }
