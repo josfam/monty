@@ -20,7 +20,7 @@ void push(int value, stack_t *stack)
  * Description: Removes the element from the top of the stack
  * Return: The element that was popped
  */
-int pop(stack_t *stack)
+int pop(stack_t **stack, int line_number)
 {
 	/* TODO */
 	return (0);
@@ -32,7 +32,7 @@ int pop(stack_t *stack)
  * Description: Swaps the top two elements of the stack
  * Return: Nothing
  */
-void swap(stack_t *stack)
+void swap(stack_t **stack, int line_number)
 {
 	/* TODO */
 }
