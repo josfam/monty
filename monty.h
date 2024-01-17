@@ -37,9 +37,9 @@ typedef struct instruction_s
 void push(int value, stack_t *stack);
 
 /* Removes the element from the top of the stack */
-int pop(stack_t **stack, int line_number);
+int pop(stack_t **stack, unsigned int line_number);
 
 /* Swaps the top two elements of the stack */
-void swap(stack_t **stack, int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif
