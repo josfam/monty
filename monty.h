@@ -34,7 +34,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Pushes an element to the stack */
-void push(int value, stack_t *stack);
+void push(stack_t **stack, unsigned int value);
 
 /* Removes the element from the top of the stack */
 int pop(stack_t **stack, unsigned int line_number);

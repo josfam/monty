@@ -9,7 +9,7 @@
  * Description: Pushes an element to the stack
  * Return: Nothing
  */
-void push(int value, stack_t *stack)
+void push(stack_t **stack, unsigned int value)
 {
 	/* TODO */
 }
