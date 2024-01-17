@@ -42,4 +42,10 @@ int pop(stack_t **tail, unsigned int line_number);
 /* Swaps the top two elements of the stack */
 void swap(stack_t **tail, unsigned int line_number);
 
+/* Checks if the stack is empty */
+int is_empty(stack_t **tail);
+
+/* Prints all the values on the stack, starting from the top of the stack */
+void pall(stack_t **tail);
+
 #endif

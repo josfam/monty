@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include "monty.h"
@@ -11,12 +12,34 @@
  */
 void push(stack_t **tail, unsigned int value)
 {
-	/* TODO */
+	stack_t *new;
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+	new->n = value;
+	new->prev = NULL;
+	new->next = NULL;
+
+	if (*tail == NULL) /* This is the first node */
+		*tail = new;
+	else
+	{
+		/* new node becomes the tail */
+		new->prev = *tail;
+		(*tail)->next = new;
+		*tail = new;
+	}
 }
 
 /**
  * pop - Removes the element from the top of the stack
  * @tail: The tail of the stack from which to remove the element
+ * @line_number: The line number being processed in the monty bytecode file
  * Description: Removes the element from the top of the stack
  * Return: The element that was popped
  */
@@ -24,15 +47,4 @@ int pop(stack_t **tail, unsigned int line_number)
 {
 	/* TODO */
 	return (0);
-}
-
-/**
- * swap - Swaps the top two elements of the stack
- * @tail: The tail of the stack where swapping will happen
- * Description: Swaps the top two elements of the stack
- * Return: Nothing
- */
-void swap(stack_t **tail, unsigned int line_number)
-{
-	/* TODO */
 }
