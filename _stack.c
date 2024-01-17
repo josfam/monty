@@ -5,22 +5,22 @@
 /**
  * push - Pushes an element to the stack
  * @value: The integer element to push to the top of the stack
- * @stack: The stack onto which to push the element
+ * @tail: The tail of the stack onto which to push the element
  * Description: Pushes an element to the stack
  * Return: Nothing
  */
-void push(stack_t **stack, unsigned int value)
+void push(stack_t **tail, unsigned int value)
 {
 	/* TODO */
 }
 
 /**
  * pop - Removes the element from the top of the stack
- * @stack: The stack from which to remove the element
+ * @tail: The tail of the stack from which to remove the element
  * Description: Removes the element from the top of the stack
  * Return: The element that was popped
  */
-int pop(stack_t **stack, unsigned int line_number)
+int pop(stack_t **tail, unsigned int line_number)
 {
 	/* TODO */
 	return (0);
@@ -28,22 +28,22 @@ int pop(stack_t **stack, unsigned int line_number)
 
 /**
  * swap - Swaps the top two elements of the stack
- * @stack: The stack on which to swap the top two elements
+ * @tail: The tail of the stack where swapping will happen
  * Description: Swaps the top two elements of the stack
  * Return: Nothing
  */
-void swap(stack_t **stack, unsigned int line_number)
+void swap(stack_t **tail, unsigned int line_number)
 {
 	/* TODO */
 }
 
 /**
  * free_stack - Frees the stack memory
- * @stack: The stack to free
+ * @tail: The tail of the stack to free
  * Description: Frees the stack memory
  * Return: Nothing
  */
-void free_stack(stack_t *stack)
+void free_stack(stack_t *tail)
 {
 	/* TODO */
 }

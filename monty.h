@@ -34,12 +34,12 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Pushes an element to the stack */
-void push(stack_t **stack, unsigned int value);
+void push(stack_t **tail, unsigned int value);
 
 /* Removes the element from the top of the stack */
-int pop(stack_t **stack, unsigned int line_number);
+int pop(stack_t **tail, unsigned int line_number);
 
 /* Swaps the top two elements of the stack */
-void swap(stack_t **stack, unsigned int line_number);
+void swap(stack_t **tail, unsigned int line_number);
 
 #endif
