@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "monty.h"
 
 /**
@@ -10,11 +11,23 @@
 */
 int main(int argc, char *argv[])
 {
-	int line_number;
+	char *monty_file;
+	FILE *fp;
 
-	line_number = 0;
+	if (!(argc > 1))
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 
-	/* open the given monty bytecode file */
-	
+	monty_file = argv[1];
+	fp = fopen(monty_file, "r");
+	if (fp == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", monty_file);
+		exit(EXIT_FAILURE);
+	}
+
+	fclose(fp);
 	return (0);
 }
