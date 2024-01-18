@@ -26,24 +26,24 @@ char **extract_instruction(char *s)
 	filling = strdup(s);
 	token_count = 0;
 
+	/* count how many tokens there are in the string */
 	token = strtok(tallying, delim);
 	while (token != NULL)
 	{
 		token_count++;
-		if (strcmp(token, "pall") == 0) /* pall can only exist on its own */
-			break;
-		if (token_count == MAX_INSTRUCTION_LEN) /* stop getting tokens */
-			break;
 		token = strtok(NULL, delim);
 	}
 	free(tallying);
 
+	/* 3-element array to hold an opcode, an opcode and argument, or nothing */
+	instruction = malloc(sizeof(char *) * (MAX_INSTRUCTION_LEN + 1));
+	for (i = 0; i < MAX_INSTRUCTION_LEN + 1; i++)
+		instruction[i] = NULL;
+
 	if (token_count == 0)  /* There was no instruction */
-		return (NULL);
+		return (instruction);	
 
-	instruction = malloc(sizeof(char *) * (token_count + 1));
-
-	/* populate instruction array */
+	/* there is 1 opcode, or 1 opcode and and 1 argument*/
 	token = strtok(filling, delim);
 	for (i = 0; i < token_count; i++)
 	{
@@ -51,7 +51,6 @@ char **extract_instruction(char *s)
 		token = strtok(NULL, delim);
 	}
 	free(filling);
-	instruction[i] = NULL;
 
 	return (instruction);
 }

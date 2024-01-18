@@ -35,16 +35,17 @@ int main(void)
 
 void print_instruction(char **instruction)
 {
-	if (instruction == NULL)
+	int i;
+
+	if (instruction[0] == NULL)
 	{
-		printf("instruction is NULL\n");
+		printf("There was no instruction\n");
 	}
 	else
 	{
-		while(*instruction != NULL)
+		for (i = 0; instruction[i] != NULL; i++)
 		{
-			printf("%s", *instruction);
-			instruction++;
+			printf("%s", instruction[i]);
 		}
 		printf("\n");
 	}
