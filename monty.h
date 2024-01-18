@@ -72,4 +72,7 @@ FILE *get_file(char **_argv);
 /* Checks if the provided strings are equivalent */
 int is_same(char *str1, char *str2);
 
+/* Prints the value at the top of the stack, followed by a new line */
+void pint(stack_t **tail);
+
 #endif
