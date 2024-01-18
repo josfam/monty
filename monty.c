@@ -5,6 +5,8 @@
 void exec_lone_opcode(stack_t **tail, char *opcode);
 void exec_paired_opcode(stack_t **tail, char *arg, char *opcode);
 
+int line_num = 0;
+
 /**
 * main - Entry point.
 * @argc: Length of array of command line arguments.
@@ -17,7 +19,6 @@ int main(int argc, char *argv[])
 	char **instruction;
 	char *line, *opcode, *arg;
 	char buffer[MAX_LINE_LEN];
-	int line_num;
 	FILE *fp;
 	stack_t *tail;
 
@@ -90,7 +91,7 @@ void exec_paired_opcode(stack_t **tail, char *arg, char *opcode)
 	{
 		if (!arg || (atoi(arg) == 0 && !is_same("0", arg)))
 		{
-			fprintf(stderr, "usage: push integer\n");
+			fprintf(stderr, "L%d: usage: push integer\n", line_num);
 			exit(EXIT_FAILURE);
 		}
 		push(tail, atoi(arg));

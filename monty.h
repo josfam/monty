@@ -4,6 +4,8 @@
 #define MAX_LINE_LEN 100
 #include <stdio.h>
 
+extern int line_num;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
