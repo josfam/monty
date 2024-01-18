@@ -16,5 +16,6 @@ int main(void)
 	push(&tail, 6);
 	pall(&tail);
 
+	free_stack(&tail);
 	return (0);
 }

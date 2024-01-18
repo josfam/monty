@@ -45,6 +45,9 @@ int is_empty(stack_t **tail);
 /* Prints all the values on the stack, starting from the top of the stack */
 void pall(stack_t **tail);
 
+/* Frees the stack memory */
+void free_stack(stack_t **tail);
+
 /* Returns an array containing the monty instruction extracted */
 /* from the provided string*/
 char **extract_instruction(char *s);
