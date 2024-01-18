@@ -15,7 +15,7 @@ int is_legal(char *opcode)
 	char *legal_opcodes[] = {
 		"push", "pall", "pint", "pop", "swap", "add", "nop"
 	};
-	const int LEGAL_COUNT = 2;
+	const int LEGAL_COUNT = 7;
 
 	for (i = 0; i < LEGAL_COUNT; i++)
 	{
