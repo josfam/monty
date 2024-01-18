@@ -79,7 +79,7 @@ void exec_lone_opcode(stack_t **tail, char *opcode)
 /**
  * exec_paired_opcode - Executes an opcode that requires an argument
  * @tail: The tail of the stack
- * @value: The argument to the opcode
+ * @arg: The argument to the opcode
  * @opcode: The opcode to execute
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
