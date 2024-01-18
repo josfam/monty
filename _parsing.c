@@ -16,7 +16,7 @@
 */
 char **extract_instruction(char *s)
 {
-	char *delim = " ";
+	char *delim = " \t\n";
 	char *tallying, *token, *filling;
 	char **instruction;
 	int token_count, i;
