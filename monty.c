@@ -3,7 +3,7 @@
 #include "monty.h"
 
 void exec_lone_opcode(stack_t **tail, char *opcode);
-void exec_paired_opcode(stack_t **tail, int value, char *opcode);
+void exec_paired_opcode(stack_t **tail, char *arg, char *opcode);
 
 /**
 * main - Entry point.
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	char **instruction;
 	char *line, *opcode, *arg;
 	char buffer[MAX_LINE_LEN];
-	int line_num, converted;
+	int line_num;
 	FILE *fp;
 	stack_t *tail;
 
@@ -53,14 +53,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			/* check the arg is a number */
-			converted = atoi(arg);
-			if (converted == 0 && !is_same("0", arg))
-			{
-				fprintf(stderr, "usage: push integer\n");
-				exit(EXIT_FAILURE);
-			}
-			exec_paired_opcode(&tail, converted, opcode);
+			exec_paired_opcode(&tail, arg, opcode);
 		}
 	}
 
@@ -91,10 +84,15 @@ void exec_lone_opcode(stack_t **tail, char *opcode)
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
 */
-void exec_paired_opcode(stack_t **tail, int value, char *opcode)
+void exec_paired_opcode(stack_t **tail, char *arg, char *opcode)
 {
 	if (is_same("push", opcode))
 	{
-		push(tail, value);
+		if (!arg || (atoi(arg) == 0 && !is_same("0", arg)))
+		{
+			fprintf(stderr, "usage: push integer\n");
+			exit(EXIT_FAILURE);
+		}
+		push(tail, atoi(arg));
 	}
 }
