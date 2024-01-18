@@ -39,12 +39,6 @@ typedef struct instruction_s
 /* Pushes an element to the stack */
 void push(stack_t **tail, unsigned int value);
 
-/* Removes the element from the top of the stack */
-int pop(stack_t **tail, unsigned int line_number);
-
-/* Swaps the top two elements of the stack */
-void swap(stack_t **tail, unsigned int line_number);
-
 /* Checks if the stack is empty */
 int is_empty(stack_t **tail);
 
