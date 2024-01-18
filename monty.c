@@ -11,21 +11,9 @@
 */
 int main(int argc, char *argv[])
 {
-	char *monty_file;
+	char **instruction;
 	FILE *fp;
-
-	if (!(argc == 2))
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-
-	monty_file = argv[1];
-	fp = fopen(monty_file, "r");
-	if (fp == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", monty_file);
-		exit(EXIT_FAILURE);
+	stack_t *tail;
 	}
 
 	fclose(fp);

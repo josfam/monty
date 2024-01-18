@@ -2,6 +2,7 @@
 #define MONTY_HEADER
 
 #define MAX_LINE_LEN 100
+#include <stdio.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -59,5 +60,10 @@ int is_lone(char *opcode);
 /* Checks whether the provided opcode is a legal opcode */
 int is_legal(char *opcode);
 
+/* Checks if the correct number of arguments were passed to main. Exits immediately if otherwise. */
+void *check_args(int _argc);
+
+/* Checks for a valid file, and returns it. Otherwise, exits the program. */
+FILE *get_file(char **_argv);
 
 #endif
