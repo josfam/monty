@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "monty.h"
 
+void exec_lone_opcode(stack_t *tail, char *opcode);
+void exec_paired_opcode(stack_t *tail, int value, char *opcode);
+
 /**
 * main - Entry point.
 * @argc: Length of array of command line arguments.
@@ -14,7 +17,7 @@ int main(int argc, char *argv[])
 	char **instruction;
 	char *line, *opcode, *arg;
 	char buffer[MAX_LINE_LEN];
-	int line_num;
+	int line_num, converted;
 	FILE *fp;
 	stack_t *tail;
 
@@ -43,15 +46,49 @@ int main(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 		else if (is_lone(opcode))
-		{
-			/* TODO */
-		}
+			exec_lone_opcode(tail, opcode);
 		else
 		{
-			/* TODO */
+			/* check the arg is a number */
+			converted = atoi(arg);
+			if (converted == 0 && !is_same("0", arg))
+			{
+				fprintf(stderr, "usage: push integer\n");
+				exit(EXIT_FAILURE);
+			}
+			exec_paired_opcode(tail, converted, opcode);
 		}
 	}
 
 	fclose(fp);
 	return (0);
+}
+
+/**
+ * exec_lone_opcode - Executes an opcode that does not require and argument
+ * @tail: The tail of the stack
+ * @opcode: The opcode to execute
+ * Description: Executes an opcode that does not require and argument
+ * Return: Nothing
+*/
+void exec_lone_opcode(stack_t *tail, char *opcode)
+{
+	if (is_same("pall", opcode))
+		pall(&tail);
+}
+
+/**
+ * exec_paired_opcode - Executes an opcode that requires an argument
+ * @tail: The tail of the stack
+ * @value: The argument to the opcode
+ * @opcode: The opcode to execute
+ * Description: Executes an opcode that requires and argument
+ * Return: Nothing
+*/
+void exec_paired_opcode(stack_t *tail, int value, char *opcode)
+{
+	if (is_same("push", opcode))
+	{
+		push(&tail, value);
+	}
 }

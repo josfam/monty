@@ -67,4 +67,7 @@ void *check_args(int _argc);
 /* Checks for a valid file, and returns it. Otherwise, exits the program. */
 FILE *get_file(char **_argv);
 
+/* Checks if the provided strings are equivalent */
+int is_same(char *str1, char *str2);
+
 #endif
