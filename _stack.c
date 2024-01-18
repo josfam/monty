@@ -28,7 +28,9 @@ void push(stack_t **tail, unsigned int value)
 	new->next = NULL;
 
 	if (*tail == NULL) /* This is the first node */
+	{
 		*tail = new;
+	}
 	else
 	{
 		/* new node becomes the tail */

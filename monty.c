@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void exec_lone_opcode(stack_t *tail, char *opcode);
-void exec_paired_opcode(stack_t *tail, int value, char *opcode);
+void exec_lone_opcode(stack_t **tail, char *opcode);
+void exec_paired_opcode(stack_t **tail, int value, char *opcode);
 
 /**
 * main - Entry point.
@@ -39,14 +39,18 @@ int main(int argc, char *argv[])
 		arg = instruction[1];
 
 		if (!opcode) /* there was no instruction */
+		{
 			continue;
+		}
 		else if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
 			exit(EXIT_FAILURE);
 		}
 		else if (is_lone(opcode))
-			exec_lone_opcode(tail, opcode);
+		{
+			exec_lone_opcode(&tail, opcode);
+		}
 		else
 		{
 			/* check the arg is a number */
@@ -56,7 +60,7 @@ int main(int argc, char *argv[])
 				fprintf(stderr, "usage: push integer\n");
 				exit(EXIT_FAILURE);
 			}
-			exec_paired_opcode(tail, converted, opcode);
+			exec_paired_opcode(&tail, converted, opcode);
 		}
 	}
 
@@ -71,10 +75,12 @@ int main(int argc, char *argv[])
  * Description: Executes an opcode that does not require and argument
  * Return: Nothing
 */
-void exec_lone_opcode(stack_t *tail, char *opcode)
+void exec_lone_opcode(stack_t **tail, char *opcode)
 {
 	if (is_same("pall", opcode))
-		pall(&tail);
+	{
+		pall(tail);
+	}
 }
 
 /**
@@ -85,10 +91,10 @@ void exec_lone_opcode(stack_t *tail, char *opcode)
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
 */
-void exec_paired_opcode(stack_t *tail, int value, char *opcode)
+void exec_paired_opcode(stack_t **tail, int value, char *opcode)
 {
 	if (is_same("push", opcode))
 	{
-		push(&tail, value);
+		push(tail, value);
 	}
 }
