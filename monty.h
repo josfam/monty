@@ -52,4 +52,12 @@ void pall(stack_t **tail);
 /* from the provided string*/
 char **extract_instruction(char *s);
 
+/* Checks whether the provided opcode is a lone opcode, i.e. */
+/*  an opcode that shouldn't accept an argument. */
+int is_lone(char *opcode);
+
+/* Checks whether the provided opcode is a legal opcode */
+int is_legal(char *opcode);
+
+
 #endif
