@@ -41,7 +41,7 @@ char **extract_instruction(char *s)
 		instruction[i] = NULL;
 
 	if (token_count == 0)  /* There was no instruction */
-		return (instruction);	
+		return (instruction);
 
 	/* there is 1 opcode, or 1 opcode and and 1 argument*/
 	token = strtok(filling, delim);
