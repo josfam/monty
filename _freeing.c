@@ -23,6 +23,12 @@ void free_stack(stack_t **tail)
 	free(current);
 }
 
+/**
+ * free_arr - Frees an array of strings
+ * @arr: The array to free
+ * Description - Frees an array of strings
+ * Return: Nothing
+ */
 void free_arr(char **arr)
 {
 	char **arrPtr;
