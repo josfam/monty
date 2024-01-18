@@ -22,3 +22,17 @@ void free_stack(stack_t **tail)
 	}
 	free(current);
 }
+
+void free_arr(char **arr)
+{
+	char **arrPtr;
+
+	arrPtr = arr;
+	while (*arrPtr)
+	{
+		free(*arrPtr);
+		arrPtr++;
+	}
+
+	free(arrPtr);
+}

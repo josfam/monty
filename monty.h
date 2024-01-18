@@ -48,6 +48,9 @@ void pall(stack_t **tail);
 /* Frees the stack memory */
 void free_stack(stack_t **tail);
 
+/* Frees an array of strings */
+void free_arr(char **arr);
+
 /* Returns an array containing the monty instruction extracted */
 /* from the provided string*/
 char **extract_instruction(char *s);
