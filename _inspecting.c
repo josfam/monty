@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include "monty.h"
 
+/* For inspection functions that do not mutate or view the linked list */
+
 /**
  * is_empty - Checks if the stack is empty
  * @tail: The tail of the stack

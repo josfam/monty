@@ -2,6 +2,8 @@
 #include <stddef.h>
 #include "monty.h"
 
+/* For functions that print out part or the whole of the linked list */
+
 /**
  * pall - Prints all the values on the stack, starting from
  *        the top of the stack

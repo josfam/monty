@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "monty.h"
 
+/* For classic stack-related functions */
+
 /**
  * push - Pushes an element to the stack
  * @value: The integer element to push to the top of the stack

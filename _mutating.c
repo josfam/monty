@@ -1,5 +1,7 @@
 #include "monty.h"
 
+/* For functions that change the linked list */
+
 /**
  * swap - Swaps the top two elements of the stack
  * @tail: The tail of the stack where swapping will happen

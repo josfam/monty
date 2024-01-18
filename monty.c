@@ -10,5 +10,11 @@
 */
 int main(int argc, char *argv[])
 {
+	int line_number;
+
+	line_number = 0;
+
+	/* open the given monty bytecode file */
+	
 	return (0);
 }

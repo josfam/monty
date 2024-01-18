@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include "monty.h"
 
+/* For parsing-related functions */
+
 /**
  * extract_instruction - Returns an array containing the monty instruction
  *                       extracted from the provided string
