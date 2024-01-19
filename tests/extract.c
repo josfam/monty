@@ -28,6 +28,8 @@ int main(void)
 		line = lines[i];
 		instruction = extract_instruction(line);
 		print_instruction(instruction);
+		if (instruction)
+			free_arr(instruction);
 	}
 
 	return (0);
@@ -37,7 +39,7 @@ void print_instruction(char **instruction)
 {
 	int i;
 
-	if (instruction[0] == NULL)
+	if (instruction == NULL)
 	{
 		printf("There was no instruction\n");
 	}
