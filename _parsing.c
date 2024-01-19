@@ -16,7 +16,6 @@
 */
 char **extract_command(char *s)
 {
-	char *delim = " \t\n";
 	char *tallying, *token, *filling;
 	char **command;
 	int token_count, i;
@@ -26,12 +25,11 @@ char **extract_command(char *s)
 	filling = strdup(s);
 	token_count = 0;
 
-	/* count how many tokens there are in the string */
-	token = strtok(tallying, delim);
+	token = strtok(tallying, DELIMS); /* count how many tokens there are */
 	while (token != NULL)
 	{
 		token_count++;
-		token = strtok(NULL, delim);
+		token = strtok(NULL, DELIMS);
 	}
 	free(tallying);
 
@@ -49,11 +47,11 @@ char **extract_command(char *s)
 	/* clip token count to count 1 opcode, or 1 opcode and and 1 argument */
 	if (token_count > MAX_COMMAND_LEN)
 		token_count = MAX_COMMAND_LEN;
-	token = strtok(filling, delim);
+	token = strtok(filling, DELIMS);
 	for (i = 0; i < token_count; i++)
 	{
 		command[i] = strdup(token);
-		token = strtok(NULL, delim);
+		token = strtok(NULL, DELIMS);
 	}
 	free(filling);
 
