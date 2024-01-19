@@ -50,8 +50,8 @@ void pop(stack_t **tail)
 	stack_t *tmp;
 
 	tmp = *tail;
-	*tail = tmp->next;
+	*tail = tmp->prev;
 	if (*tail != NULL)
-		(*tail)->prev = NULL;
+		(*tail)->next = NULL;
 	free(tmp);
 }
