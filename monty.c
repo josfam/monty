@@ -94,9 +94,17 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		}
 		pint(tail);
 	}
-	else if (is_same("nop", opcode))
+	else if (is_same("pop", opcode))
 	{
-		;
+		if (is_empty(tail))
+		{
+			fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+			free_arr(command);
+			fclose(fp);
+			exit(EXIT_FAILURE);
+		}
+		else
+			pop(tail);
 	}
 }
 
