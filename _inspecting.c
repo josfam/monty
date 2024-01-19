@@ -15,7 +15,7 @@
  */
 int is_empty(stack_t **tail)
 {
-	if (tail == NULL)
+	if (*tail == NULL)
 	{
 		return (1);
 	}
