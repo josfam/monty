@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void exec_lone(stack_t **tail, char *opcode, char **command);
+void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp);
 void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 				FILE *fp);
 
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 		}
 		else if (is_lone(opcode))
 		{
-			exec_lone(&tail, opcode, command);
+			exec_lone(&tail, opcode, command, fp);
 		}
 		else
 		{
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
  * Description: Executes an opcode that does not require and argument
  * Return: Nothing
 */
-void exec_lone(stack_t **tail, char *opcode, char **command)
+void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 {
 	if (is_same("pall", opcode))
 	{
@@ -84,6 +84,13 @@ void exec_lone(stack_t **tail, char *opcode, char **command)
 	}
 	else if (is_same("pint", opcode))
 	{
+		if (is_empty(tail))
+		{
+			fprintf(stderr, "L%d: can't pint, stack empty", line_num);
+			free_arr(command);
+			fclose(fp);
+			exit(EXIT_FAILURE);
+		}
 		pint(tail);
 	}
 	else if (is_same("nop", opcode))

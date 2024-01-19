@@ -31,10 +31,5 @@ int is_empty(stack_t **tail)
  */
 void pint(stack_t **tail)
 {
-	if (is_empty(tail))
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_num);
-		exit(EXIT_FAILURE);
-	}
 	printf("%d\n", (*tail)->n);
 }
