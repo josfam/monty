@@ -36,14 +36,13 @@ int main(int argc, char *argv[])
 
 		line_num++;
 		instruction = extract_instruction(line);
+		if (!instruction)
+			continue;
+
 		opcode = instruction[0];
 		arg = instruction[1];
 
-		if (!opcode) /* there was no instruction */
-		{
-			continue;
-		}
-		else if (!(is_legal(opcode)))
+		if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
 			exit(EXIT_FAILURE);
