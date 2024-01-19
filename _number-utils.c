@@ -1,3 +1,5 @@
+#include <string.h>
+#include <ctype.h>
 #include "monty.h"
 
 /* For general purpose operations involving numbers */
