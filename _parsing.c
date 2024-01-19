@@ -46,7 +46,9 @@ char **extract_command(char *s)
 	for (i = 0; i < MAX_command_LEN + 1; i++)
 		command[i] = NULL;
 
-	/* there is 1 opcode, or 1 opcode and and 1 argument*/
+	/* clip token count to count 1 opcode, or 1 opcode and and 1 argument */
+	if (token_count > MAX_command_LEN)
+		token_count = MAX_command_LEN;
 	token = strtok(filling, delim);
 	for (i = 0; i < token_count; i++)
 	{
