@@ -37,6 +37,7 @@ char **extract_instruction(char *s)
 
 	if (token_count == 0)  /* There was no instruction */
 	{
+		free(filling);
 		return (NULL);
 	}
 
