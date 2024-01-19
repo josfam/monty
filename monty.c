@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void exec_lone(stack_t **tail, char *opcode);
-void exec_paired(stack_t **tail, char *arg, char *opcode);
+void exec_lone(stack_t **tail, char *opcode, char **command);
+void exec_paired(stack_t **tail, char *arg, char *opcode, char **command);
 
 int line_num = 0;
 
@@ -51,11 +51,11 @@ int main(int argc, char *argv[])
 		}
 		else if (is_lone(opcode))
 		{
-			exec_lone(&tail, opcode);
+			exec_lone(&tail, opcode, command);
 		}
 		else
 		{
-			exec_paired(&tail, arg, opcode);
+			exec_paired(&tail, arg, opcode, command);
 		}
 	}
 
@@ -67,14 +67,16 @@ int main(int argc, char *argv[])
  * exec_lone - Executes an opcode that does not require and argument
  * @tail: The tail of the stack
  * @opcode: The opcode to execute
+ * @command: Array of strings representing the full monty bytecode command
  * Description: Executes an opcode that does not require and argument
  * Return: Nothing
 */
-void exec_lone(stack_t **tail, char *opcode)
+void exec_lone(stack_t **tail, char *opcode, char **command)
 {
 	if (is_same("pall", opcode))
 	{
 		pall(tail);
+		free_arr(command);
 	}
 	else if (is_same("pint", opcode))
 	{
@@ -91,18 +93,21 @@ void exec_lone(stack_t **tail, char *opcode)
  * @tail: The tail of the stack
  * @arg: The argument to the opcode
  * @opcode: The opcode to execute
+ * @command: Array of strings representing the full monty bytecode command
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
 */
-void exec_paired(stack_t **tail, char *arg, char *opcode)
+void exec_paired(stack_t **tail, char *arg, char *opcode, char **command)
 {
 	if (is_same("push", opcode))
 	{
 		if (!arg || (atoi(arg) == 0 && !is_same("0", arg)))
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_num);
+			free_arr(command);
 			exit(EXIT_FAILURE);
 		}
 		push(tail, atoi(arg));
+		free_arr(command);
 	}
 }
