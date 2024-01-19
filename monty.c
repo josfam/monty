@@ -47,6 +47,8 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "L%d: unknown command %s\n", line_num, opcode);
 			free_arr(command);
 			fclose(fp);
+			if (tail != NULL)
+				free_stack(&tail);
 			exit(EXIT_FAILURE);
 		}
 		else if (is_lone(opcode))
