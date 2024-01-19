@@ -35,13 +35,15 @@ char **extract_instruction(char *s)
 	}
 	free(tallying);
 
+	if (token_count == 0)  /* There was no instruction */
+	{
+		return (NULL);
+	}
+
 	/* 3-element array to hold an opcode, an opcode and argument, or nothing */
 	instruction = malloc(sizeof(char *) * (MAX_INSTRUCTION_LEN + 1));
 	for (i = 0; i < MAX_INSTRUCTION_LEN + 1; i++)
 		instruction[i] = NULL;
-
-	if (token_count == 0)  /* There was no instruction */
-		return (instruction);
 
 	/* there is 1 opcode, or 1 opcode and and 1 argument*/
 	token = strtok(filling, delim);
