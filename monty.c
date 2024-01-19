@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
  * @tail: The tail of the stack
  * @opcode: The opcode to execute
  * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
  * Description: Executes an opcode that does not require and argument
  * Return: Nothing
 */
