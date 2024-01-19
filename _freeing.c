@@ -31,14 +31,13 @@ void free_stack(stack_t **tail)
  */
 void free_arr(char **arr)
 {
-	char **arrPtr;
+	int i;
 
-	arrPtr = arr;
-	while (*arrPtr)
+	for (i = 0; i < 3; i++)
 	{
-		free(*arrPtr);
-		arrPtr++;
+		if (arr[i] != NULL)
+			free(arr[i]);
 	}
 
-	free(arrPtr);
+	free(arr);
 }
