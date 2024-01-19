@@ -20,7 +20,7 @@ char **extract_command(char *s)
 	char *tallying, *token, *filling;
 	char **command;
 	int token_count, i;
-	const int MAX_command_LEN = 2;
+	const int MAX_COMMAND_LEN = 2;
 
 	tallying = strdup(s);
 	filling = strdup(s);
@@ -42,13 +42,13 @@ char **extract_command(char *s)
 	}
 
 	/* 3-element array to hold an opcode, an opcode and argument, or nothing */
-	command = malloc(sizeof(char *) * (MAX_command_LEN + 1));
-	for (i = 0; i < MAX_command_LEN + 1; i++)
+	command = malloc(sizeof(char *) * (MAX_COMMAND_LEN + 1));
+	for (i = 0; i < MAX_COMMAND_LEN + 1; i++)
 		command[i] = NULL;
 
 	/* clip token count to count 1 opcode, or 1 opcode and and 1 argument */
-	if (token_count > MAX_command_LEN)
-		token_count = MAX_command_LEN;
+	if (token_count > MAX_COMMAND_LEN)
+		token_count = MAX_COMMAND_LEN;
 	token = strtok(filling, delim);
 	for (i = 0; i < token_count; i++)
 	{
