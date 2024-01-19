@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void exec_lone_opcode(stack_t **tail, char *opcode);
-void exec_paired_opcode(stack_t **tail, char *arg, char *opcode);
+void exec_lone(stack_t **tail, char *opcode);
+void exec_paired(stack_t **tail, char *arg, char *opcode);
 
 int line_num = 0;
 
@@ -49,11 +49,11 @@ int main(int argc, char *argv[])
 		}
 		else if (is_lone(opcode))
 		{
-			exec_lone_opcode(&tail, opcode);
+			exec_lone(&tail, opcode);
 		}
 		else
 		{
-			exec_paired_opcode(&tail, arg, opcode);
+			exec_paired(&tail, arg, opcode);
 		}
 	}
 
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
  * Description: Executes an opcode that does not require and argument
  * Return: Nothing
 */
-void exec_lone_opcode(stack_t **tail, char *opcode)
+void exec_lone(stack_t **tail, char *opcode)
 {
 	if (is_same("pall", opcode))
 	{
@@ -92,7 +92,7 @@ void exec_lone_opcode(stack_t **tail, char *opcode)
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
 */
-void exec_paired_opcode(stack_t **tail, char *arg, char *opcode)
+void exec_paired(stack_t **tail, char *arg, char *opcode)
 {
 	if (is_same("push", opcode))
 	{
