@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
 		if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
+			free_arr(instruction);
+			fclose(fp);
 			exit(EXIT_FAILURE);
 		}
 		else if (is_lone(opcode))
