@@ -75,4 +75,7 @@ int is_same(char *str1, char *str2);
 /* Prints the value at the top of the stack, followed by a new line */
 void pint(stack_t **tail);
 
+/* Checks whether the string is composed of only digits */
+int is_all_digits(char *s);
+
 #endif
