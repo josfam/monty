@@ -79,6 +79,10 @@ void exec_lone_opcode(stack_t **tail, char *opcode)
 	{
 		pint(tail);
 	}
+	else if (is_same("nop", opcode))
+	{
+		;
+	}
 }
 
 /**
