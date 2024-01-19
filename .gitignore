@@ -53,6 +53,7 @@ dkms.conf
 
 # test files
 list-lines.c
+*test.m
 
 # monty executable
 monty
