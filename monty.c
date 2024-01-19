@@ -3,7 +3,8 @@
 #include "monty.h"
 
 void exec_lone(stack_t **tail, char *opcode, char **command);
-void exec_paired(stack_t **tail, char *arg, char *opcode, char **command);
+void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
+				FILE *fp);
 
 int line_num = 0;
 
@@ -57,7 +58,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			exec_paired(&tail, arg, opcode, command);
+			exec_paired(&tail, arg, opcode, command, fp);
 		}
 	}
 	if (tail != NULL)
@@ -97,17 +98,21 @@ void exec_lone(stack_t **tail, char *opcode, char **command)
  * @arg: The argument to the opcode
  * @opcode: The opcode to execute
  * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
  * Description: Executes an opcode that requires and argument
  * Return: Nothing
 */
-void exec_paired(stack_t **tail, char *arg, char *opcode, char **command)
+void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
+				FILE *fp)
 {
 	if (is_same("push", opcode))
 	{
-		if (!arg || (atoi(arg) == 0 && !is_same("0", arg)))
+		if (!arg || !is_all_digits(arg))
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_num);
 			free_arr(command);
+			free_stack(tail);
+			fclose(fp);
 			exit(EXIT_FAILURE);
 		}
 		push(tail, atoi(arg));
