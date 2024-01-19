@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 }
 
 /**
- * exec_lone_opcode - Executes an opcode that does not require and argument
+ * exec_lone - Executes an opcode that does not require and argument
  * @tail: The tail of the stack
  * @opcode: The opcode to execute
  * Description: Executes an opcode that does not require and argument
@@ -87,7 +87,7 @@ void exec_lone(stack_t **tail, char *opcode)
 }
 
 /**
- * exec_paired_opcode - Executes an opcode that requires an argument
+ * exec_paired - Executes an opcode that requires an argument
  * @tail: The tail of the stack
  * @arg: The argument to the opcode
  * @opcode: The opcode to execute
