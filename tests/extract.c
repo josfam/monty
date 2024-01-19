@@ -2,7 +2,7 @@
 #include <string.h>
 #include "../monty.h"
 
-void print_instruction(char **instruction);
+void print_command(char **command);
 
 /**
 * main - Entry point.
@@ -13,7 +13,7 @@ int main(void)
 {
 	int i, len;
 	char *line;
-	char **instruction;
+	char **command;
 	char *lines[] = {
 		"  push 3",
 		"                   pall    ",
@@ -26,28 +26,28 @@ int main(void)
 	for (i = 0; i < len; i++)
 	{
 		line = lines[i];
-		instruction = extract_instruction(line);
-		print_instruction(instruction);
-		if (instruction)
-			free_arr(instruction);
+		command = extract_command(line);
+		print_command(command);
+		if (command)
+			free_arr(command);
 	}
 
 	return (0);
 }
 
-void print_instruction(char **instruction)
+void print_command(char **command)
 {
 	int i;
 
-	if (instruction == NULL)
+	if (command == NULL)
 	{
-		printf("There was no instruction\n");
+		printf("There was no command\n");
 	}
 	else
 	{
-		for (i = 0; instruction[i] != NULL; i++)
+		for (i = 0; command[i] != NULL; i++)
 		{
-			printf("%s", instruction[i]);
+			printf("%s", command[i]);
 		}
 		printf("\n");
 	}

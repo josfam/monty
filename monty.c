@@ -16,7 +16,7 @@ int line_num = 0;
 */
 int main(int argc, char *argv[])
 {
-	char **instruction;
+	char **command;
 	char *line, *opcode, *arg;
 	char buffer[MAX_LINE_LEN];
 	FILE *fp;
@@ -35,17 +35,17 @@ int main(int argc, char *argv[])
 			break;
 
 		line_num++;
-		instruction = extract_instruction(line);
-		if (!instruction)
+		command = extract_command(line);
+		if (!command)
 			continue;
 
-		opcode = instruction[0];
-		arg = instruction[1];
+		opcode = command[0];
+		arg = command[1];
 
 		if (!(is_legal(opcode)))
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
-			free_arr(instruction);
+			fprintf(stderr, "L%d: unknown command %s\n", line_num, opcode);
+			free_arr(command);
 			fclose(fp);
 			exit(EXIT_FAILURE);
 		}

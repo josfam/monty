@@ -51,9 +51,9 @@ void free_stack(stack_t **tail);
 /* Frees an array of strings */
 void free_arr(char **arr);
 
-/* Returns an array containing the monty instruction extracted */
+/* Returns an array containing the monty command extracted */
 /* from the provided string*/
-char **extract_instruction(char *s);
+char **extract_command(char *s);
 
 /* Checks whether the provided opcode is a lone opcode, i.e. */
 /*  an opcode that shouldn't accept an argument. */
