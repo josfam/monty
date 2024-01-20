@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 			break;
 
 		line_num++;
+		free_arr(command); /* free previous command before making a new one */
 		command = extract_command(line);
 		if (!command)
 			continue;
