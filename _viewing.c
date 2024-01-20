@@ -25,7 +25,7 @@ void pall(stack_t **tail)
 	{
 		while (current != NULL)
 		{
-			printf("%d\n", current->n);
+			fprintf(stdout, "%d\n", current->n);
 			current = current->prev;
 		}
 	}
@@ -40,5 +40,5 @@ void pall(stack_t **tail)
  */
 void pint(stack_t **tail)
 {
-	printf("%d\n", (*tail)->n);
+	fprintf(stdout, "%d\n", (*tail)->n);
 }
