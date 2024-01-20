@@ -82,7 +82,7 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 	{
 		if (is_empty(tail))
 		{
-			fprintf(stderr, "L%d: can't pint, stack empty", line_num);
+			fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
 			free_and_exit(tail, command, fp);
 		}
 		pint(tail);
