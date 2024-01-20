@@ -96,6 +96,10 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		}
 		pop(tail);
 	}
+	else if (is_same("nop", opcode)) /* do nothing */
+	{
+		;
+	}
 }
 
 /**
