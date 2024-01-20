@@ -90,15 +90,14 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 	}
 	else if (is_same("pop", opcode))
 	{
-		if (is_empty(tail))
+		if (tail == NULL || *tail == NULL)
 		{
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
 			free_arr(command);
 			fclose(fp);
 			exit(EXIT_FAILURE);
 		}
-		else
-			pop(tail);
+		pop(tail);
 	}
 }
 
