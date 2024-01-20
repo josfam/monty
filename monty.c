@@ -93,9 +93,7 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		if (tail == NULL || *tail == NULL)
 		{
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
-			free_arr(command);
-			fclose(fp);
-			exit(EXIT_FAILURE);
+			free_and_exit(tail, command,  fp);
 		}
 		pop(tail);
 	}

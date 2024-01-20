@@ -41,14 +41,13 @@ void push(stack_t **tail, unsigned int value)
 /**
  * pop - Removes the element from the top of the stack
  * @tail: The tail of the stack from which to remove the element
- * @line_number: The line number being processed in the monty bytecode file
  * Description: Removes the element from the top of the stack
  * Return: The element that was popped
  */
 void pop(stack_t **tail)
 {
 	stack_t *tmp;
-
+	
 	tmp = *tail;
 	*tail = tmp->prev;
 	if (*tail != NULL)
