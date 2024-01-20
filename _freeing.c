@@ -39,6 +39,7 @@ void free_stack(stack_t **tail)
 void free_arr(char **arr)
 {
 	int i;
+
 	if (arr == NULL) /* Do nothing */
 	{
 		;
