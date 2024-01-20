@@ -75,7 +75,6 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 	if (is_same("pall", opcode))
 	{
 		pall(tail);
-		free_arr(command);
 	}
 	else if (is_same("pint", opcode))
 	{
@@ -118,6 +117,5 @@ void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 			free_and_exit(tail, command, fp);
 		}
 		push(tail, atoi(arg));
-		free_arr(command);
 	}
 }
