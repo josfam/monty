@@ -15,7 +15,7 @@ int is_legal(char *opcode)
 	char *legal_opcodes[] = {
 		"push", "pall", "pint", "pop", "swap", "add", "nop"
 	};
-	const int LEGAL_COUNT = 7;
+	const int LEGAL_COUNT = sizeof(legal_opcodes) / sizeof(legal_opcodes[0]);
 
 	for (i = 0; i < LEGAL_COUNT; i++)
 	{
@@ -42,7 +42,7 @@ int is_lone(char *opcode)
 	char *lone_opcodes[] = {
 		"pall", "pint", "pop", "swap", "add", "nop"
 	};
-	const int LONE_COUNT = 6;
+	const int LONE_COUNT = sizeof(lone_opcodes) / sizeof(lone_opcodes[0]);
 
 	for (i = 0; i < LONE_COUNT; i++)
 	{
