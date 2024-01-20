@@ -55,6 +55,9 @@ void free_stack(stack_t **tail);
 /* Frees an array of strings */
 void free_arr(char **arr);
 
+/* Frees memory and exits the program */
+void free_and_exit(stack_t **tail, char **command, FILE *fp);
+
 /* Returns an array containing the monty command extracted */
 /* from the provided string*/
 char **extract_command(char *s);

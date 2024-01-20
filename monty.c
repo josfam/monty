@@ -46,11 +46,7 @@ int main(int argc, char *argv[])
 		if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown command %s\n", line_num, opcode);
-			free_arr(command);
-			fclose(fp);
-			if (tail != NULL)
-				free_stack(&tail);
-			exit(EXIT_FAILURE);
+			free_and_exit(&tail, command, fp);
 		}
 		else if (is_lone(opcode))
 		{
@@ -88,9 +84,7 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		if (is_empty(tail))
 		{
 			fprintf(stderr, "L%d: can't pint, stack empty", line_num);
-			free_arr(command);
-			fclose(fp);
-			exit(EXIT_FAILURE);
+			free_and_exit(tail, command, fp);
 		}
 		pint(tail);
 	}
@@ -126,10 +120,7 @@ void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 		if (!arg || !is_all_digits(arg))
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_num);
-			free_arr(command);
-			free_stack(tail);
-			fclose(fp);
-			exit(EXIT_FAILURE);
+			free_and_exit(tail, command, fp);
 		}
 		push(tail, atoi(arg));
 		free_arr(command);

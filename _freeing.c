@@ -48,3 +48,19 @@ void free_arr(char **arr)
 
 	free(arr);
 }
+
+/**
+ * free_and_exit - Frees memory and exits the program
+ * @tail: The tail of the stack
+ * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
+ * Description: Frees memory and exits the program
+ * Return: Nothing
+*/
+void free_and_exit(stack_t **tail, char **command, FILE *fp)
+{
+	free_arr(command);
+	free_stack(tail);
+	fclose(fp);
+	exit(EXIT_FAILURE);
+}
