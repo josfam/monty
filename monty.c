@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	fp = get_file(argv);
 
 	tail = NULL;
+	command = NULL;
 
 	/* read lines from the monty byte file */
 	while (1)
