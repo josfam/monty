@@ -13,14 +13,21 @@ void free_stack(stack_t **tail)
 {
 	stack_t *current;
 
-	current = *tail;
-	while (current->prev != NULL)
+	if (*tail == NULL) /* Do nothing */
 	{
-		current = current->prev;
-		free(*tail);
-		*tail = current;
+		;
 	}
-	free(current);
+	else
+	{
+		current = *tail;
+		while (current->prev != NULL)
+		{
+			current = current->prev;
+			free(*tail);
+			*tail = current;
+		}
+		free(current);
+	}
 }
 
 /**
