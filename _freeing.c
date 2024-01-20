@@ -39,14 +39,19 @@ void free_stack(stack_t **tail)
 void free_arr(char **arr)
 {
 	int i;
-
-	for (i = 0; i < 3; i++)
+	if (arr == NULL) /* Do nothing */
 	{
-		if (arr[i] != NULL)
-			free(arr[i]);
+		;
 	}
-
-	free(arr);
+	else
+	{
+		for (i = 0; i < 3; i++)
+		{
+			if (arr[i] != NULL)
+				free(arr[i]);
+		}
+		free(arr);
+	}
 }
 
 /**
