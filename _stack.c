@@ -47,7 +47,7 @@ void push(stack_t **tail, unsigned int value)
 void pop(stack_t **tail)
 {
 	stack_t *tmp;
-	
+
 	tmp = *tail;
 	*tail = tmp->prev;
 	if (*tail != NULL)
