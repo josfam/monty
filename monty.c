@@ -57,9 +57,7 @@ int main(int argc, char *argv[])
 			exec_paired(&tail, arg, opcode, command, fp);
 		}
 	}
-	if (tail != NULL)
-		free_stack(&tail);
-	fclose(fp);
+	free_and_exit(&tail, command, fp);
 	return (0);
 }
 
