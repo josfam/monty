@@ -31,3 +31,14 @@ void pall(stack_t **tail)
 	}
 }
 
+/**
+ * pint - Prints the value at the top of the stack, followed by a new line
+ * @tail: The tail of the stack
+ * Description: prints the value at the top of the stack,
+ *              followed by a new line
+ * Return: Nothing
+ */
+void pint(stack_t **tail)
+{
+	printf("%d\n", (*tail)->n);
+}
