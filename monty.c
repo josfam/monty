@@ -17,9 +17,7 @@ int line_num = 0;
 */
 int main(int argc, char *argv[])
 {
-	char **command;
-	char *line, *opcode, *arg;
-	char buffer[MAX_LINE_LEN];
+	char **command, *line, *opcode, *arg, buffer[MAX_LINE_LEN];
 	FILE *fp;
 	stack_t *tail;
 
