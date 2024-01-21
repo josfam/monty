@@ -25,8 +25,7 @@ int main(int argc, char *argv[])
 	tail = NULL;
 	command = NULL;
 
-	/* read lines from the monty byte file */
-	while (1)
+	while (1) /* read and interpret lines from the monty byte file */
 	{
 		line = fgets(buffer, sizeof(buffer), fp);
 		if (!line)
@@ -40,20 +39,15 @@ int main(int argc, char *argv[])
 
 		opcode = command[0];
 		arg = command[1];
-
 		if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown command %s\n", line_num, opcode);
 			free_and_exit(&tail, command, fp);
 		}
 		else if (is_lone(opcode))
-		{
 			exec_lone(&tail, opcode, command, fp);
-		}
 		else
-		{
 			exec_paired(&tail, arg, opcode, command, fp);
-		}
 	}
 	free_and_exit(&tail, command, fp);
 	return (0);
