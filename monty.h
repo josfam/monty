@@ -41,7 +41,7 @@ typedef struct instruction_s
 void push(stack_t **tail, unsigned int value);
 
 /* Pops the top element of the stack */
-void pop(stack_t **tail);
+void pop(stack_t **tail, char **command, FILE *fp);
 
 /* Checks if the stack is empty */
 int is_empty(stack_t **tail);

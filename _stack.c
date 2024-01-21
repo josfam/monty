@@ -41,12 +41,20 @@ void push(stack_t **tail, unsigned int value)
 /**
  * pop - Removes the element from the top of the stack
  * @tail: The tail of the stack from which to remove the element
+ * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
  * Description: Removes the element from the top of the stack
  * Return: The element that was popped
  */
-void pop(stack_t **tail)
+void pop(stack_t **tail, char **command, FILE *fp)
 {
 	stack_t *tmp;
+
+	if (tail == NULL || *tail == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		free_and_exit(tail, command,  fp);
+	}
 
 	tmp = *tail;
 	*tail = tmp->prev;

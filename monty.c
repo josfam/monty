@@ -65,21 +65,11 @@ int main(int argc, char *argv[])
 void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 {
 	if (is_same("pall", opcode))
-	{
 		pall(tail);
-	}
 	if (is_same("pint", opcode))
 		pint(tail, command, fp);
-
 	if (is_same("pop", opcode))
-	{
-		if (tail == NULL || *tail == NULL)
-		{
-			fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
-			free_and_exit(tail, command,  fp);
-		}
-		pop(tail);
-	}
+		pop(tail, command, fp);
 	if (is_same("nop", opcode)) /* do nothing */
 	{
 		;
