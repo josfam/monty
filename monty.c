@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 			break;
 
 		line_num++;
-		free_arr(command); /* free previous command before making a new one */
 		command = extract_command(line);
 		if (!command)
 			continue;
@@ -49,7 +48,8 @@ int main(int argc, char *argv[])
 		else
 			exec_paired(&tail, arg, opcode, command, fp);
 	}
-	free_and_exit(&tail, command, fp);
+	free_stack(&tail);
+	fclose(fp);
 	return (0);
 }
 
@@ -68,7 +68,7 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 	{
 		pall(tail);
 	}
-	else if (is_same("pint", opcode))
+	if (is_same("pint", opcode))
 	{
 		if (is_empty(tail))
 		{
@@ -77,7 +77,7 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		}
 		pint(tail);
 	}
-	else if (is_same("pop", opcode))
+	if (is_same("pop", opcode))
 	{
 		if (tail == NULL || *tail == NULL)
 		{
@@ -86,10 +86,11 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		}
 		pop(tail);
 	}
-	else if (is_same("nop", opcode)) /* do nothing */
+	if (is_same("nop", opcode)) /* do nothing */
 	{
 		;
 	}
+	free_arr(command);
 }
 
 /**
@@ -114,4 +115,5 @@ void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 		}
 		push(tail, atoi(arg));
 	}
+	free_arr(command);
 }
