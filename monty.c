@@ -69,14 +69,8 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		pall(tail);
 	}
 	if (is_same("pint", opcode))
-	{
-		if (is_empty(tail))
-		{
-			fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
-			free_and_exit(tail, command, fp);
-		}
-		pint(tail);
-	}
+		pint(tail, command, fp);
+
 	if (is_same("pop", opcode))
 	{
 		if (tail == NULL || *tail == NULL)
