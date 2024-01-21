@@ -38,7 +38,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Pushes an element to the stack */
-void push(stack_t **tail, unsigned int value);
+void push(stack_t **tail, char *value, char **command, FILE *fp);
 
 /* Pops the top element of the stack */
 void pop(stack_t **tail, char **command, FILE *fp);

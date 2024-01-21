@@ -7,14 +7,22 @@
 
 /**
  * push - Pushes an element to the stack
- * @value: The integer element to push to the top of the stack
  * @tail: The tail of the stack onto which to push the element
+ * @value: The integer element to push to the top of the stack
+ * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
  * Description: Pushes an element to the stack
  * Return: Nothing
  */
-void push(stack_t **tail, unsigned int value)
+void push(stack_t **tail, char *value, char **command, FILE *fp)
 {
 	stack_t *new;
+
+	if (!value || !is_all_digits(value))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_num);
+		free_and_exit(tail, command, fp);
+	}
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -23,7 +31,7 @@ void push(stack_t **tail, unsigned int value)
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = value;
+	new->n = atoi(value);
 	new->prev = NULL;
 	new->next = NULL;
 

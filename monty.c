@@ -91,13 +91,7 @@ void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 				FILE *fp)
 {
 	if (is_same("push", opcode))
-	{
-		if (!arg || !is_all_digits(arg))
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_num);
-			free_and_exit(tail, command, fp);
-		}
-		push(tail, atoi(arg));
-	}
+		push(tail, arg, command, fp);
+
 	free_arr(command);
 }
