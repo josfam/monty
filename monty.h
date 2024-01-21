@@ -69,12 +69,10 @@ int is_lone(char *opcode);
 /* Checks whether the provided opcode is a legal opcode */
 int is_legal(char *opcode);
 
-/* Checks if the correct number of arguments were passed to main. */
-/* Exits immediately if otherwise. */
-void *check_args(int _argc);
-
-/* Checks for a valid file, and returns it. Otherwise, exits the program. */
-FILE *get_file(char **_argv);
+/* Checks if the correct number of arguments were passed to main, and if a */
+/* valid file was provided. A pointer to the file is returned if so */
+/* Exits immediately otherwise. */
+FILE *check_args(int _argc, char **_argv);
 
 /* Checks if the provided strings are equivalent */
 int is_same(char *str1, char *str2);

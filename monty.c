@@ -21,9 +21,7 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	stack_t *tail;
 
-	check_args(argc);
-	fp = get_file(argv);
-
+	fp = check_args(argc, argv);
 	tail = NULL;
 	command = NULL;
 

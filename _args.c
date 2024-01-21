@@ -2,38 +2,28 @@
 #include <stdlib.h>
 
 /**
- * check_args - Checks if the correct number of arguments were passed to main
- * @_argc: The argument count
- * Description: Checks if the correct number of arguments were passed to main.
- *              Exits immediately if otherwise.
+ * check_args - Checks if the correct number of arguments were passed to main,
+ *              and checks if a valid file was passed into main.
+ *              If so, a pointer to the file is returned.
+ *              Otherwise, the program exits in both cases.
+ * @_argc: The argument count passed into main
+ * @_argv: The argument vector passed into main
+ * Description: Checks if the correct number of arguments were passed to main,
+ *              and checks if a valid file was passed into main.
+ *              If so, a pointer to the file is returned.
+ *              Otherwise, the program exits in both cases.
  * Return: Nothing
 */
-void check_args(int _argc)
+FILE *check_args(int _argc, char **_argv)
 {
+	char *monty_file;
+	FILE *fp;
+
 	if (!(_argc == 2))
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		;
-	}
-}
-
-/**
- * get_file - Checks for a valid file, and returns it. Otherwise, exits the
- *            program.
- * @_argv: The argument vector passed into main
- * Description: Checks for a valid file, and returns it. Otherwise, exits the
- *            program.
- * Return: A pointer to a file stream if the file is valid. Exits the program
- *         otherwise.
-*/
-FILE *get_file(char **_argv)
-{
-	char *monty_file;
-	FILE *fp;
 
 	monty_file = _argv[1];
 	fp = fopen(monty_file, "r");
