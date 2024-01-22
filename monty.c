@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		arg = command[1];
 		if (!(is_legal(opcode)))
 		{
-			fprintf(stderr, "L%d: unknown command %s\n", line_number, opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			free_and_exit(&tail, command, fp);
 		}
 		else if (is_lone(opcode))
