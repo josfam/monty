@@ -83,6 +83,9 @@ int is_same(char *str1, char *str2);
 /* Prints the value at the top of the stack, followed by a new line */
 void pint(stack_t **tail, char **command, FILE *fp);
 
+/* Swaps the top two elements of the stack */
+void swap(stack_t **tail, char **command, FILE *fp);
+
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);
 
