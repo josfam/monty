@@ -4,6 +4,7 @@
 #include "monty.h"
 
 /* For classic stack-related functions */
+int stack_size(stack_t **tail);
 
 int line_number = 0;
 
@@ -74,12 +75,12 @@ void pop(stack_t **tail, char **command, FILE *fp)
 }
 
 /**
- * size - Returns the size of the stack
+ * stack_size - Returns the size of the stack
  * @tail: The tail of the stack whose size to get
  * Description: Returns the size of the stack
  * Return: The size of the stack
  */
-int stack_size (stack_t **tail)
+int stack_size(stack_t **tail)
 {
 	int size;
 	stack_t *current;
