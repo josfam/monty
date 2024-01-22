@@ -44,7 +44,7 @@ void pint(stack_t **tail, char **command, FILE *fp)
 {
 	if (is_empty(tail))
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		free_and_exit(tail, command, fp);
 	}
 	fprintf(stdout, "%d\n", (*tail)->n);

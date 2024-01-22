@@ -6,8 +6,6 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp);
 void exec_paired(stack_t **tail, char *arg, char *opcode, char **command,
 				FILE *fp);
 
-int line_num = 0;
-
 /**
 * main - Entry point.
 * @argc: Length of array of command line arguments.
@@ -31,7 +29,7 @@ int main(int argc, char *argv[])
 		if (!line)
 			break;
 
-		line_num++;
+		line_number++;
 		command = extract_command(line);
 		if (!command)
 			continue;
@@ -40,7 +38,7 @@ int main(int argc, char *argv[])
 		arg = command[1];
 		if (!(is_legal(opcode)))
 		{
-			fprintf(stderr, "L%d: unknown command %s\n", line_num, opcode);
+			fprintf(stderr, "L%d: unknown command %s\n", line_number, opcode);
 			free_and_exit(&tail, command, fp);
 		}
 		else if (is_lone(opcode))

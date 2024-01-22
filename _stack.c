@@ -5,6 +5,8 @@
 
 /* For classic stack-related functions */
 
+int line_number = 0;
+
 /**
  * push - Pushes an element to the stack
  * @tail: The tail of the stack onto which to push the element
@@ -20,7 +22,7 @@ void push(stack_t **tail, char *value, char **command, FILE *fp)
 
 	if (!value || !is_all_digits(value))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_num);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_and_exit(tail, command, fp);
 	}
 
@@ -60,7 +62,7 @@ void pop(stack_t **tail, char **command, FILE *fp)
 
 	if (tail == NULL || *tail == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_and_exit(tail, command,  fp);
 	}
 
@@ -69,4 +71,29 @@ void pop(stack_t **tail, char **command, FILE *fp)
 	if (*tail != NULL)
 		(*tail)->next = NULL;
 	free(tmp);
+}
+
+/**
+ * size - Returns the size of the stack
+ * @tail: The tail of the stack whose size to get
+ * Description: Returns the size of the stack
+ * Return: The size of the stack
+ */
+int stack_size (stack_t **tail)
+{
+	int size;
+	stack_t *current;
+
+	size = 0;
+	if (*tail == NULL) /* empty */
+		return (0);
+
+	current = *tail;
+	while (current != NULL)
+	{
+		size++;
+		current = current->prev;
+	}
+
+	return (size);
 }

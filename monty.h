@@ -4,7 +4,7 @@
 #define MAX_LINE_LEN 100
 #include <stdio.h>
 
-extern int line_num;
+extern int line_number;
 #define DELIMS " \n\t"
 
 /**
@@ -42,6 +42,9 @@ void push(stack_t **tail, char *value, char **command, FILE *fp);
 
 /* Pops the top element of the stack */
 void pop(stack_t **tail, char **command, FILE *fp);
+
+/* Returns the size of the stack */
+int stack_size (stack_t **tail);
 
 /* Checks if the stack is empty */
 int is_empty(stack_t **tail);
