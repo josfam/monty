@@ -90,6 +90,9 @@ void swap(stack_t **tail, char **command, FILE *fp);
 /* of the stack */
 void sub(stack_t **tail, char **command, FILE *fp);
 
+/* Adds the top two elements of the stack */
+void add(stack_t **tail, char **command, FILE *fp);
+
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);
 

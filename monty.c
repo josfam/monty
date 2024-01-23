@@ -72,6 +72,8 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		swap(tail, command, fp);
 	if (is_same("sub", opcode))
 		sub(tail, command, fp);
+	if (is_same("add", opcode))
+		add(tail, command, fp);
 	if (is_same("nop", opcode)) /* do nothing */
 	{
 		;
