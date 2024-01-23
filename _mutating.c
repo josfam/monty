@@ -5,7 +5,7 @@
 
 /**
  * swap - Swaps the top two elements of the stack
- * @tail: The tail of the stack onto which to push the element
+ * @tail: The entry point of the stack
  * @command: Array of strings representing the full monty bytecode command
  * @fp: A pointer to the open monty bytecode file
  * Description: Swaps the top two elements of the stack
