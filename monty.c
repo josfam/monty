@@ -36,7 +36,12 @@ int main(int argc, char *argv[])
 
 		opcode = command[0];
 		arg = command[1];
-		if (!(is_legal(opcode)))
+		if (opcode[0] == '#') /* do nothing for a comment */
+		{
+			nop();
+			free_arr(command);
+		}
+		else if (!(is_legal(opcode)))
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			free_and_exit(&tail, command, fp);
