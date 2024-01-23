@@ -105,6 +105,9 @@ void divide(stack_t **tail, char **command, FILE *fp);
 /* by the top element of the stack. */
 void mod(stack_t **tail, char **command, FILE *fp);
 
+/* Prints the char at the top of the stack, followed by a new line */
+void pchar(stack_t **tail, char **command, FILE *fp);
+
 /* nop - Does nothing */
 void nop();
 

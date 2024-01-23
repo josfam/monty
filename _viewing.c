@@ -49,3 +49,29 @@ void pint(stack_t **tail, char **command, FILE *fp)
 	}
 	fprintf(stdout, "%d\n", (*tail)->n);
 }
+
+/**
+ * pchar - Prints the char at the top of the stack, followed by a new line
+ * @tail: The tail of the stack
+ * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
+ * Description: Prints the char at the top of the stack, followed by a new line
+ * Return: Nothing
+ */
+void pchar(stack_t **tail, char **command, FILE *fp)
+{
+	int value;
+
+	value = (*tail)->n;
+	if (!(value >= 0 && value <= 127))
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		free_and_exit(tail, command, fp);
+	}
+	if (is_empty(tail))
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		free_and_exit(tail, command, fp);
+	}
+	printf("%c\n", value);
+}
