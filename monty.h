@@ -93,8 +93,13 @@ void sub(stack_t **tail, char **command, FILE *fp);
 /* Adds the top two elements of the stack */
 void add(stack_t **tail, char **command, FILE *fp);
 
-/* Multiplies the second top element of the stack with the top element of the stack */
+/* Multiplies the second top element of the stack with the top element */
+/* of the stack */
 void mul(stack_t **tail, char **command, FILE *fp);
+
+/*  Divides the second top element of the stack by the top element */
+/* of the stack*/
+void div(stack_t **tail, char **command, FILE *fp);
 
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);

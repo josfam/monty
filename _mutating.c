@@ -113,3 +113,38 @@ void mul(stack_t **tail, char **command, FILE *fp)
 	previous->n = result;
 	pop(tail, command, fp);
 }
+
+/**
+ * div - Divides the second top element of the stack by the top element
+ *       of the stack
+ * @tail: The entry point of the stack
+ * @command: Array of strings representing the full monty bytecode command
+ * @fp: A pointer to the open monty bytecode file
+ * Description: Divides the second top element of the stack by the top element
+ *              of the stack
+ * Return: Nothing
+ */
+void div(stack_t **tail, char **command, FILE *fp)
+{
+	int result;
+	stack_t *previous;
+
+	if (stack_size(tail) < 2)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_and_exit(tail, command, fp);
+	}
+
+	if ((*tail)->prev == 0) /* avoid dividing by zero */
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_and_exit(tail, command, fp);
+	}
+
+	previous = (*tail)->prev;
+
+	/* store division in the second top element, and pop the tail */
+	result = previous->n / (*tail)->n;
+	previous->n = result;
+	pop(tail, command, fp);
+}

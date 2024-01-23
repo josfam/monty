@@ -76,6 +76,8 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		add(tail, command, fp);
 	if (is_same("mul", opcode))
 		mul(tail, command, fp);
+	if (is_same("div", opcode))
+		div(tail, command, fp);
 	if (is_same("nop", opcode)) /* do nothing */
 	{
 		;
