@@ -115,7 +115,7 @@ void mul(stack_t **tail, char **command, FILE *fp)
 }
 
 /**
- * div - Divides the second top element of the stack by the top element
+ * divide - Divides the second top element of the stack by the top element
  *       of the stack
  * @tail: The entry point of the stack
  * @command: Array of strings representing the full monty bytecode command
@@ -124,7 +124,7 @@ void mul(stack_t **tail, char **command, FILE *fp)
  *              of the stack
  * Return: Nothing
  */
-void div(stack_t **tail, char **command, FILE *fp)
+void divide(stack_t **tail, char **command, FILE *fp)
 {
 	int result;
 	stack_t *previous;

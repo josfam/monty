@@ -99,7 +99,7 @@ void mul(stack_t **tail, char **command, FILE *fp);
 
 /*  Divides the second top element of the stack by the top element */
 /* of the stack*/
-void div(stack_t **tail, char **command, FILE *fp);
+void divide(stack_t **tail, char **command, FILE *fp);
 
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);
