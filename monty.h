@@ -105,6 +105,9 @@ void divide(stack_t **tail, char **command, FILE *fp);
 /* by the top element of the stack. */
 void mod(stack_t **tail, char **command, FILE *fp);
 
+/* nop - Does nothing */
+void nop();
+
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);
 
