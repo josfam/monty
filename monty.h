@@ -101,6 +101,10 @@ void mul(stack_t **tail, char **command, FILE *fp);
 /* of the stack*/
 void divide(stack_t **tail, char **command, FILE *fp);
 
+/* Computes the rest of the division of the second top element of the stack */
+/* by the top element of the stack. */
+void mod(stack_t **tail, char **command, FILE *fp);
+
 /* Checks whether the string is composed of only digits */
 int is_all_digits(char *s);
 
