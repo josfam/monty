@@ -135,7 +135,7 @@ void divide(stack_t **tail, char **command, FILE *fp)
 		free_and_exit(tail, command, fp);
 	}
 
-	if ((*tail)->prev == 0) /* avoid dividing by zero */
+	if ((*tail)->n == 0) /* avoid dividing by zero */
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_and_exit(tail, command, fp);
