@@ -76,3 +76,32 @@ void pchar(stack_t **tail, char **command, FILE *fp)
 
 	printf("%c\n", value);
 }
+
+/**
+ * pstr - Prints the char at the top of the stack, followed by a new line
+ * @tail: The tail of the stack
+ * Description: Prints the char at the top of the stack, followed by a new line
+ * Return: Nothing
+ */
+void pstr(stack_t **tail)
+{
+	int value;
+	stack_t *current;
+
+	if (*tail == NULL)
+		;
+	else
+	{
+		current = *tail;
+		while (current != NULL)
+		{
+			value = current->n;
+			/* stop printing if a 0 or non-ascii character is encountered */
+			if (value == 0 || !(value >= 0 && value <= 127))
+				break;
+			printf("%c", value);
+			current = current->prev;
+		}
+		printf("\n");
+	}
+}

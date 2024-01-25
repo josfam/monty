@@ -108,6 +108,9 @@ void mod(stack_t **tail, char **command, FILE *fp);
 /* Prints the char at the top of the stack, followed by a new line */
 void pchar(stack_t **tail, char **command, FILE *fp);
 
+/* Prints the char at the top of the stack, followed by a new line */
+void pstr(stack_t **tail);
+
 /* nop - Does nothing */
 void nop();
 

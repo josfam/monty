@@ -87,6 +87,8 @@ void exec_lone(stack_t **tail, char *opcode, char **command, FILE *fp)
 		mod(tail, command, fp);
 	if (is_same("pchar", opcode))
 		pchar(tail, command, fp);
+	if (is_same("pstr", opcode))
+		pstr(tail);
 	if (is_same("nop", opcode)) /* do nothing */
 		nop();
 	free_arr(command);
