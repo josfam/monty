@@ -89,7 +89,9 @@ void pstr(stack_t **tail)
 	stack_t *current;
 
 	if (*tail == NULL)
-		;
+	{
+		printf("\n");
+	}
 	else
 	{
 		current = *tail;
