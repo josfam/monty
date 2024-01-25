@@ -31,3 +31,37 @@ void swap(stack_t **tail, char **command, FILE *fp)
 	(*tail)->n = previous->n;
 	previous->n = temp;
 }
+
+/**
+ * rotl - Rotates the stack to the top
+ * @tail: The entry point of the stack
+ * Description: Rotates the stack to the top
+ * Return: Nothing
+ */
+void rotl(stack_t **tail)
+{
+	stack_t *current, *new_head, *prev;
+
+	current = *tail;
+	if (is_empty(tail) || stack_size(tail) == 1) /* Do nothing */
+	{
+		;
+	}
+	else
+	{
+		new_head = malloc(sizeof(stack_t));
+		new_head->n = (*tail)->n;
+		new_head->prev = NULL;
+		while (current->prev != NULL) /* reach the head of the stack */
+		{
+			current = current->prev;
+		}
+		new_head->next = current;
+		current->prev = new_head;
+
+		/* pop the tail */
+		prev = (*tail)->prev;
+		free(*tail);
+		*tail = prev;
+	}
+}
