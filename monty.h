@@ -114,6 +114,9 @@ void pstr(stack_t **tail);
 /* Rotates the stack to the top */
 void rotl(stack_t **tail);
 
+/* Rotates the stack to the bottom */
+void rotr(stack_t **tail);
+
 /* nop - Does nothing */
 void nop();
 

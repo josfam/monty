@@ -65,3 +65,33 @@ void rotl(stack_t **tail)
 		*tail = prev;
 	}
 }
+
+/**
+ * rotr - Rotates the stack to the bottom
+ * @tail: The entry point of the stack
+ * Description: Rotates the stack to the bottom
+ * Return: Nothing
+ */
+void rotr(stack_t **tail)
+{
+	stack_t *current, *new_tail;
+
+	current = *tail;
+	if (is_empty(tail) || stack_size(tail) == 1) /* Do nothing */
+	{
+		;
+	}
+	else
+	{
+		while (current->next != NULL) /* reach the head of the stack */
+		{
+			current = current->prev;
+		}
+		new_tail = malloc(sizeof(stack_t));
+		new_tail->n = current->n;
+		(*tail)->next = new_tail;
+		new_tail->prev = *tail;
+		*tail = new_tail;
+		free(current);
+	}
+}
